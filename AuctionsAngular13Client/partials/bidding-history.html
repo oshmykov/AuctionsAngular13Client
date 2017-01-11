@@ -1,0 +1,24 @@
+<strong class="pull-left">Bidders: {{auction.uniqueLength}}</strong><strong class="pull-right">Total Bids: {{auction.bidHistory.length}}</strong>
+<table class="table" style="min-height: 600px; height: 100%">
+	<thead>
+	  	<tr>
+		    <th>Bidder Name</th>
+		    <th>Points Amount</th>
+		    <th>Bid Time</th>
+		</tr>
+	</thead>
+    <tbody>
+    	<tr ng-repeat="entry in auction.bidHistory">
+	        <td><span ng-show="entry.me" class="glyphicon glyphicon-ok"></span> {{entry.name}}</td>
+	        <td>{{entry.bid}}</td>
+	        <td>
+				<div class="no-wrap">
+					{{entry.time | dateFilter:'date'}}
+				</div>
+				<div class="no-wrap">
+					{{entry.time | dateFilter:'time'}}
+				</div>            
+	        </td>
+    	</tr>
+    </tbody>
+</table>
