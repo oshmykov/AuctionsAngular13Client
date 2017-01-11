@@ -1,0 +1,24 @@
+<div class="col-xs-12">
+	<div class="pull-left box34">
+		<ul class="pagination no-margin">
+			<li ng-if="directionLinks" ng-class="{disabled: noPrevious()}">
+				<a class="prev" href ng-click="selectPage(page - 1, $event)">&laquo;</a>
+			</li>
+		</ul>	
+	</div>
+	<div class="pull-right box34">
+		<ul class="pagination no-margin">
+			<li ng-if="directionLinks" ng-class="{disabled: noNext()}">
+				<a class="next" href ng-click="selectPage(page + 1, $event)">&raquo;</a>
+			</li>		
+		</ul>
+	</div>
+	<div class="pagination-buttons">
+		<ul class="pagination pagination-3-buttons">
+			<li ng-repeat="page in pages track by $index" ng-class="{active: page.active}">
+				<a href ng-click="selectPage(page.number, $event)">{{(page.number - 1) * 10 + 1}} - {{page.number * 10 < totalItems ? page.number * 10 : totalItems}}</a>
+			</li>
+		</ul>
+	</div>
+</div>
+

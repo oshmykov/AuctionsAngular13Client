@@ -1,0 +1,103 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12" ng-show="auction">
+  			<div class="min-height-190">
+				<div class="input-group">
+					<h5>
+						<strong>
+							{{auction.name}}
+						</strong> 
+						<div class="text-muted smaller">{{auction.name2}}</div>
+					</h5>
+					
+					<div class="input-group-btn" class="valign-top">
+						<span type="button" class="btn pull-right favorite" ng-click="toggleFollowing()"><span class="glyphicon glyphicon-star smaller" ng-class="{true: 'yellow-attention'}[isFavorite || auction.bidding == 'l']" ></span></span>
+					</div>
+				</div>
+				
+  				<div class="absolute">
+  					<div>
+  						<img ng-src="{{auction.images.thumb}}" class="img120 img-rounded"/>
+  					</div>
+  					<div class="smaller centered">
+  						<a href class="disabled" disabled>More images</a>
+  					</div>
+  				</div>
+  				<div class="col-xs-12 offset125">
+  					<div class="bidding-status extended" ng-class="{'l': 'btn-success', 'o': 'btn-danger', 'e': 'btn-default'}[auction.bidding]">
+  						{{auction.bidding | biddingFilter | uppercase}}
+  					</div>
+					<div class="row smaller">
+						<div class="col-xs-6 no-wrap">
+							{{'Ending' | endingFilter:auction.switchedToCountDown }}
+						</div>
+						<div class="col-xs-6">
+							<div ng-hide="auction.switchedToCountDown">
+								<div class="no-wrap">
+									{{auction.ending | dateFilter:'date'}}
+								</div>
+								<div class="no-wrap">
+									{{auction.ending | dateFilter:'time'}}
+								</div>
+							</div>
+							<div ng-show="auction.switchedToCountDown" class="no-wrap" ng-class="{true: 'critical'}[auction.criticalTimeLeft]">
+								{{auction.timeLeft | timeFilter}}
+							</div>	
+						</div>								
+					</div>
+					<div class="row smaller">
+						<div class="col-xs-6 no-wrap">
+							Current Bid:
+						</div>
+						<div class="col-xs-6">
+							{{auction.currentBid}} Points
+						</div>								
+					</div>
+					<div class="row smaller" ng-show="auction.type == 'pc'">
+						<div class="col-xs-6 no-wrap">
+							<div>
+								Payment Due:
+							</div>
+							<div>
+								<sup>(upon winning)</sup>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							{{auction.paymentDue}} USD
+						</div>								
+					</div>	
+					<div class="row">
+						<div class="col-xs-12 text-primary">
+							<strong>
+								<span class="glyphicon glyphicon-ok"></span> FREE SHIPPING
+							</strong>
+						</div>							
+					</div>										
+					<div class="row">
+						<div class="col-xs-12">
+							<p ng-show="auction.bidding != 'l' && auction.beedExceedes" class="smaller"><em>Not enough points to bid</em></p>
+						</div>							
+					</div>					  				
+  				</div>  				
+  			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<a href="#/auction/{{auction.id}}" class="btn btn-primary btn-lg btn-block" ng-disabled="auction.bidding == 'l' || auction.beedExceedes">Place Bid &ndash; {{nextBid}}</a>
+				</div>							
+			</div>
+		</div>
+	
+		<div class="col-xs-12" ng-show="loaded && !auction">
+			<h5 class="bg-danger centered">Auction does not exist</h5>
+		</div>
+	</div>
+</div>
+<scrollable-tabset tabs-container-class="tabscontainer">
+	<scrollable-tab title="Description">Description content is here</scrollable-tab>
+	<scrollable-tab title="Bidding History">
+		<div ng-include src="'partials/bidding-history.html'"></div>
+	</scrollable-tab>
+	<scrollable-tab title="Additional Terms">
+		<div ng-include src="'partials/additional-terms.html'"></div>
+	</scrollable-tab>
+</scrollable-tabset>

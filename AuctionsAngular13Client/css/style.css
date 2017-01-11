@@ -1,0 +1,223 @@
+.absolute {
+  position: absolute; }
+
+.inline {
+  display: inline; }
+
+.valign-top {
+  vertical-align: top; }
+
+.no-margin {
+  margin: 0; }
+
+.no-padding {
+  padding: 0; }
+
+.box34 {
+  width: 34px;
+  height: 34px; }
+
+img.img120 {
+  width: 120px;
+  height: 120px; }
+
+.offset125 {
+  padding: 0 0 0 125px; }
+
+img.img60 {
+  width: 60px;
+  height: 60px; }
+
+.offset65 {
+  padding: 0 0 0 65px; }
+
+.min-height-190 {
+  min-height: 190px;
+  margin-bottom: 30px; }
+
+.no-wrap {
+  white-space: nowrap; }
+
+div.order-by {
+  padding: 10px 0; }
+
+ul.nav > li > a {
+  padding: 13px 10px;
+  border-radius: 0; }
+
+ul.nav > li > a.back {
+  padding: 13px 10px 13px 2px; }
+
+ul.nav > li > a span {
+  vertical-align: middle;
+  padding: 0; }
+
+.balance {
+  display: inline-block;
+  padding-top: 1.4em; }
+
+a.disabled, a.disabled:hover, a.disabled:active {
+  color: #666;
+  cursor: not-allowed; }
+
+.red-attention {
+  color: #C12E2A; }
+
+.yellow-attention {
+  color: #F0AD4E; }
+
+.input-group-btn > div a.filter, .input-group-btn > a.btn.order-by {
+  color: #333; }
+
+.input-group-btn > div a.filter {
+  padding: 6px 0 6px 6px; }
+
+.input-group-btn > a.btn.order-by {
+  left: 4px;
+  margin: 0;
+  padding: 6px; }
+
+html,
+body {
+  height: 100%; }
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px;
+  padding: 0 0 60px; }
+
+footer {
+  height: 0;
+  font-size: 0.8em; }
+
+footer > ul {
+  text-align: center;
+  background-color: #F5F5F5; }
+
+footer ul > li {
+  padding: 10px 0 0 0;
+  display: inline-block;
+  height: 60px; }
+
+footer ul > li:not(:last-child):after {
+  content: " |"; }
+
+.filters-group {
+  padding: 5px 0 0 0; }
+
+.filter-buttons .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.btn-group.filter-buttons > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-bottom-right-radius: 0; }
+
+.filter-results {
+  background-color: #F5F5F5;
+  padding-left: 15px; }
+
+.pager-display {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin: 0 0 0 -15px;
+  padding: 5px 0 0 0;
+  z-index: -1; }
+
+.bidding-status {
+  padding-left: 5px; }
+
+.input-group > .input-group-btn > .btn.favorite {
+  margin-right: -10px;
+  border-radius: 0; }
+
+.bidding-status.extended {
+  margin: 0 -15px 10px 0; }
+
+.smaller {
+  font-size: 0.9em; }
+
+.centered {
+  text-align: center; }
+
+h5 > div.text-muted {
+  padding-top: 3px; }
+
+.tabgroup {
+  margin-top: 10px; }
+
+.tabs {
+  width: 100%;
+  display: block;
+  height: 45px;
+  background-color: #F5F5F5; }
+
+.tabs div.pointer-caret:after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  border-style: solid;
+  border-width: 10px;
+  display: block;
+  left: 50%;
+  margin-left: -8px;
+  border-color: transparent transparent #fff transparent; }
+
+.slider2 {
+  overflow: hidden;
+  -webkit-transform: scale3d(1, 1, 1); }
+
+.slider2.leftReached .shadows {
+  background-size: 0 0, 40px 100%; }
+
+.slider2.rightReached .shadows {
+  background-size: 40px 100%, 0 0; }
+
+.slider2 .shadows {
+  background-position: left top, right top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 40px 100%;
+  -webkit-transform: scale3d(1, 1, 1); }
+
+.tabs .slider2 .tabscontainer {
+  -webkit-transition-duration: 0.5s; }
+
+.slider2 > div:last-of-type {
+  display: table-row; }
+
+.tabs .slider2 .tabscontainer > div {
+  display: table-cell;
+  font-size: 16px;
+  font-weight: bold;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative; }
+
+.tabs .slider2 .tab {
+  position: relative;
+  padding: 13px 40px; }
+
+.tabs .slider2 .scrollbar {
+  display: none; }
+
+.tab-content {
+  padding-top: 5px; }
+
+.tabscontent > div {
+  display: none; }
+
+.tabscontent > .active {
+  display: block; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/*# sourceMappingURL=style.css.map */

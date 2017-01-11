@@ -1,0 +1,16 @@
+<div class="tabgroup" ng-swipe-left="switchPane(true)" ng-swipe-right="switchPane(false)">
+	<div class="tabs">
+		<div class="slider2">
+			<div class="tabscontainer">
+				<div ng-repeat="pane in panes">
+					<div class="tab noselect" ng-click="select(pane)" ng-class="{'active pointer-caret':pane.selected}">
+						{{pane.title}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12">
+		<div class="tab-content" ng-transclude></div>
+	</div>
+</div>

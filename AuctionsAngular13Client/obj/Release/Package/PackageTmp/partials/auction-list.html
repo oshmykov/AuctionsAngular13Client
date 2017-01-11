@@ -1,0 +1,69 @@
+<div class="container-fluid">
+	<section class="row filters-group">
+		<div class="btn-group filter-buttons" role="group">
+			<div class="btn-group">
+	    		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Type <span class="caret"></span></button>
+		    	<ul class="dropdown-menu" role="menu">
+		    		<li ng-class="{'all-types': 'active'}[type]"><a href ng-click="filterByType('all-types')">{{'all-types' | typeFilter}}</a></li>
+					<li ng-class="{'po': 'active'}[type]"><a href ng-click="filterByType('po')">{{'po' | typeFilter}}</a></li>
+					<li ng-class="{'pc': 'active'}[type]"><a href ng-click="filterByType('pc')">{{'pc' | typeFilter}}</a></li>
+		      	</ul>
+		    </div>
+		    
+		    <div class="btn-group">
+		    	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="glyphicon glyphicon-time"></span> <span class="caret"></button>
+				<ul class="dropdown-menu" role="menu">
+		    		<li ng-class="{'with-extended': 'active'}[extended]"><a href ng-click="filterByExtended('with-extended')">{{'with-extended' | extendedFilter}}</a></li>
+					<li ng-class="{'extended-only': 'active'}[extended]"><a href ng-click="filterByExtended('extended-only')">{{'extended-only' | extendedFilter}}</a></li>
+					<li ng-class="{'no-extended': 'active'}[extended]"><a href ng-click="filterByExtended('no-extended')">{{'no-extended' | extendedFilter}}</a></li>
+				</ul>
+		    </div>
+		    
+		    <div class="btn-group">
+				<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Special <span class="caret"></span></button>
+				<ul class="dropdown-menu " role="menu">
+		    		<li ng-class="{'regular': 'active'}[kind]"><a href ng-click="filterByKind('regular')">{{'regular' | kindFilter}}</a></li>
+					<li ng-class="{'sports': 'active'}[kind]"><a href ng-click="filterByKind('sports')">{{'sports' | kindFilter}}</a></li>
+				</ul>
+		    </div>
+		</div>
+		<div class="input-group filter-results">
+			<div class="small" style="vertical-align: middle; display: table-cell">
+				{{type | resumeFilter:extended:kind}} <br/><strong>{{total}} results</strong>
+			</div>
+			<div class="input-group-btn" class="valign-top">
+				<button type="button" class="btn pull-right" ng-click="toggleBookmark()"><span class="glyphicon glyphicon-bookmark" ng-class="{true: 'red-attention'}[isBookmarked]" ></span></button>
+			</div>
+		</div>
+	</section>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="input-group">
+				<div class="order-by small">
+					Order By <i>{{primaryOrder | orderByFilter:true}} {{ascending | orderFilter:primaryOrder}}</i>
+				</div>
+				<div class="input-group-btn" class="valign-top">
+		            <a ng-click="changeOrder()" class="btn order-by glyphicon " ng-class="{true: 'glyphicon-chevron-down', false: 'glyphicon-chevron-up'}[ascending]"></a>
+		            <div dropdown class="inline">
+						<a dropdown-toggle class="btn filter dropdown-toggle">
+							Order <span class="caret"></span>
+						</a>				            
+		            	<ul class="dropdown-menu dropdown-menu-right" role="menu">
+		              		<li ng-class="{'name': 'active'}[primaryOrder]"><a href ng-click="changeOrderBy('name')">{{'name' | orderByFilter}}</a></li>
+		              		<li ng-class="{'ending': 'active'}[primaryOrder]"><a href ng-click="changeOrderBy('ending')">{{'ending' | orderByFilter}}</a></li>
+		            	</ul>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<ul class="list-group">
+  		<li class="list-group-item" ng-repeat="auction in auctions | notFeaturedOrSearch:query:featured.id">
+  			<div ng-include src="'partials/auction-list-item.html'"></div>
+  		</li>
+	</ul> 
+	<div class="pager-display">{{(offset - 1) * itemsPerPage + 1}} &mdash; {{offset * itemsPerPage}}</div>
+	<pager total-items="totalForPager" ng-model="offset" items-per-page="5" ng-change="pageChanged()"></pager>	
+</div>

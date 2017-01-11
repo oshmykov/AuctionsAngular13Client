@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="absolute">
+		<img ng-src="{{auction.images.thumb}}" class="img60 img-rounded"/>
+	</div>
+	<div class="col-xs-12 offset65">
+		<div class="bidding-status" ng-class="{'l': 'btn-success', 'o': 'btn-danger', 'e': 'btn-default'}[auction.bidding]">
+			{{auction.bidding | biddingFilter | uppercase}}
+		</div>
+		<strong>
+			<a ng-click="openDetails(auction.id)" href="#/auction/{{auction.id}}">{{auction.name}}</a>
+		</strong>
+		<div class="row smaller">
+			<div class="col-xs-6 no-wrap">
+				{{'Ending' | endingFilter:auction.switchedToCountDown }}
+			</div>
+			<div class="col-xs-6">
+				<div ng-hide="auction.switchedToCountDown">
+					<div class="no-wrap">
+						{{auction.ending | dateFilter:'date'}}
+					</div>
+					<div class="no-wrap">
+						{{auction.ending | dateFilter:'time'}}
+					</div>
+				</div>
+				<div ng-show="auction.switchedToCountDown" ng-class="{true: 'critical'}[auction.criticalTimeLeft]">
+					{{auction.timeLeft | timeFilter}}
+				</div>							
+			</div>
+		</div>
+		<div class="row smaller">
+			<div class="col-xs-6 no-wrap">
+				Current Bid:
+			</div>
+			<div class="col-xs-6">
+				{{auction.currentBid}} Points
+			</div>								
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<strong>
+					{{auction.type | typeFilter | uppercase}}
+				</strong>
+			</div>							
+		</div>							
+		<div class="row">
+			<div class="col-xs-12">
+				<p ng-show="auction.bidding != 'l' && auction.beedExceedes" class="smaller"><em>Not enough points to bid</em></p>
+			</div>							
+		</div>					  				
+	</div>
+</div>

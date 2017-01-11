@@ -1,0 +1,12 @@
+<accordion close-others="oneAtATime">
+    <accordion-group heading="{{group.title}}" ng-repeat="group in groups" is-open="group.open">
+        <accordion-heading>
+            {{group.title}} <i class="pull-right">({{group.auctions.length}}) <span class="glyphicon" ng-class="{'glyphicon-chevron-down': group.open, 'glyphicon-chevron-right': !group.open}"></span></i>
+        </accordion-heading>
+		<ul class="list-group">
+	  		<li class="list-group-item" ng-repeat="auction in group.auctions">
+	  			<div ng-include src="'partials/auction-list-item.html'"></div>
+	  		</li>
+		</ul>
+    </accordion-group>    
+</accordion>
